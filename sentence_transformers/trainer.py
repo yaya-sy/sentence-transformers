@@ -525,6 +525,8 @@ class SentenceTransformerTrainer(Trainer):
                 prefix = column[: -len("sentence_embedding")]
             elif column.endswith("_pixel_values"):
                 prefix = column[: -len("pixel_values")]
+            elif column.endswith("_input_values"):
+                prefix = column[: -len("input_values")]
             else:
                 continue
             features.append({key[len(prefix) :]: value for key, value in inputs.items() if key.startswith(prefix)})
